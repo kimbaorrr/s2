@@ -1,0 +1,521 @@
+	html, body {
+			height:100%;
+			margin: 0;
+			padding: 0;
+		}
+
+		html > body {
+			font-size: 16px; 
+			font-size: 70%;
+		} /* Reset Base Font Size */
+
+		body {
+			font-family: Verdana, helvetica, arial, sans-serif;
+			font-size: 70%;
+			background: #0072AF;
+			color: #333;
+
+			background-image: rgb(201,222,150);
+			background-image: -moz-linear-gradient(top, rgb(201,222,150) 0%, rgb(138,182,107) 44%, rgb(57,130,53) 100%);
+			background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(201,222,150)), color-stop(44%,rgb(138,182,107)), color-stop(100%,rgb(57,130,53)));
+			background-image: -webkit-linear-gradient(top, rgb(201,222,150) 0%,rgb(138,182,107) 44%,rgb(57,130,53) 100%);
+			background-image: -o-linear-gradient(top, rgb(201,222,150) 0%,rgb(138,182,107) 44%,rgb(57,130,53) 100%);
+			background-image: -ms-linear-gradient(top, rgb(201,222,150) 0%,rgb(138,182,107) 44%,rgb(57,130,53) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c9de96', endColorstr='#398235',GradientType=0 );
+			background-image: linear-gradient(top, rgb(201,222,150) 0%,rgb(138,182,107) 44%,rgb(57,130,53) 100%);
+		}
+
+		h1 {
+			font-family: 'trebuchet ms', verdana, arial;
+			padding: 10px;
+			padding-top:12px;
+			padding-bottom:0px;
+			margin: 0;
+		}
+
+		a img {
+			border: none;
+		}
+
+
+		.loading {
+			background:#fff;
+			border: 1px solid #aaa;
+			margin-left: auto;
+			margin-right: auto;
+			width: 90%;
+			height:90%;
+			padding-top:30px;
+			text-align:center;
+			font-size:120%;
+		}
+		.loading_info {
+			font-size:80%;
+			font-style: italic;
+		}
+
+		/* --- Top header --- */
+
+		.app_header {
+			height:80px;
+			max-width: 1440px;
+			background-color:#eee;
+			margin-left: auto;
+			margin-right: auto;
+			border-left: 1px solid #aaa;
+			border-right: 1px solid #aaa;
+			background-image: rgb(246,248,249);
+			background-image: -moz-linear-gradient(top, rgb(246,248,249) 0%, rgb(215,222,227) 99%);
+			background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(246,248,249)), color-stop(99%,rgb(215,222,227)));
+			background-image: -webkit-linear-gradient(top, rgb(246,248,249) 0%,rgb(215,222,227) 99%);
+			background-image: -o-linear-gradient(top, rgb(246,248,249) 0%,rgb(215,222,227) 99%);
+			background-image: -ms-linear-gradient(top, rgb(246,248,249) 0%,rgb(215,222,227) 99%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', endColorstr='#d7dee3',GradientType=0 );
+			background-image: linear-gradient(top, rgb(246,248,249) 0%,rgb(215,222,227) 99%);
+		}
+		@media screen and (min-width : 1024px) {
+			.app_header {
+				width: 90%;
+			}
+		}
+
+		.app_header a {
+			color: #900;
+		}
+		.app_header_icon {
+			background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAByBJREFUaEPVWWlsVFUYPfe9eTN0gdoyaBcCSEWqLJrQkhYEGzFBwURiQmICUQnd2Cvxl4lhaUtINAZZ2nmFHy4xxpTfkqgYCZMujC20FKIFjJQWatehpYWZt5nvta/M0nbmNTOMvKRp+5Z7v3O/85177r0MT/nFYhw/9a8BMH6bDicmAAoLC3MsFss5VVOTNVVbxThWNwbkh/6+/g9ramqUcJE8MQBFJUUHOcYd0DQa8MeXl/OuFhTByXEcC3gmcRwnqIr6viiKP06WpagCKCkpadOgLQTATzaiBICXeOfefR/rACwWC1quXEF9Qx1GRkbAcZzvpxpjrF1Tte2iKJ6nB1EDkJ+fb1mctVgKRQVfAJO9SyDa/voTTudFDA4Ogud59Pf1W4hqTwUAvxSMUbD88KGnEwDzyNBsFpQdOjhtAGFJXiQp5JsB+7qT6Pl1N8oPmwBQUFCwIi4+7qwkSfOIj4qiMItgua11act60PNwItkzA0BQrM49+0qZIsuBRRtUFpY7vZDnzkbZJBTSa6K4uHiLYBO+9TzyaJwuAwyqqiA//w3U1jpVSZIYXWOt0ztQVKW02lF93OjRHADBCZ8GZUVGYlwCVubmYtnyV/QmDYk1uvWj0ObNm3n7HLukKIrKGOPp5dTUNGzY+A4SEhKgqiq1rzfkqDqlyrLsCyBwlDTRIXJmAPjKKPVDA9Lb24vW1qu4eeMGhocf6P3Tj6IoSExIQGfn3cc1UFxcnP32ho2u5xeSZGM8WN/IEr+vxdDW1RArT4YCANEhsukACCW5NLAETpYkHKko9wewa89e11QN2NcdR8/5fRCrYgdAj09RAZ7zVyHKQCgABrgwKBS1DFAMpEK953eHB4BSZnCyo6MDjS4XOu92xIxCBCBl69fo/+4jlPnKKGVg5+49LvIhV1ua0dBQj+HhYTDGweN5hPkLFugKlJKSgmqxKlCFgphntgYsskX3QiQWk9VgYCd+KkQAZsTNcK3KW42Xly7VJcsY/fEPaQpnLBwVMk2hQDfKyKIxorsKyeuFIAiYOXMmMtIzkJX1ElLsdnz5xecmi3j9SXT/XorqY19FlUK+em/Ql+6RiSNWdN27h+7uf1FfV2cOQPy5Zoy8tRwOR2VUAYSSUuN5EIWeFhXKrHsVt3Iv+1sJo4iN2VZTVbIG6OnuRmdHJ27caMOAewAejwdxcXExzUBm3VLcymsNllFVU12jxTILaWlpSH0uFanp6bqViI+P1+0EcTHW84CxB2CaQho0kDpEAwDJ6L7S/brZClwzG5wPvG8awKKLS9C2tg1i5bGIU4hk1MeMhlXHfkvKcKyEsXkTjQxwXm48A+FET3SuKDtsTkb/L16IqR6oEFAeCIBxbEo3agDgOC7iFDLWA+GMfmb9EtxceTUYAHmhcBqIhhcyAyCp6yzcz74XDCDURMZL96EISRAdlRE3c2YA0CBPqwb01OVeR7XjVMQBMA/T3SittiyCQFqKkZFh3fv8fesW2tvbMTh4X/+flpT03jRUiGYBLSoZ8JVRfdnIOMyIm4GkWUm6lZ83bz6SU1L0SVWSJB1EkAqlZ2S4kpOTMdtuh322XZ99ExIT9b1Kw6NT49GgEOelDOwPcyrQoKnaxDVAASqKjIcPH+HB0BA6Ou7gXtc99PX2wu1266mz2WwxVaG77jeRNutn80VsKFQ0MmCmiDsH1iA96YJ5AF33P0Bq0jcQHZFfUpoBMG0V6hjIw9zk2pgAINmkWiSbf/v2P2hpacHlpiZ/K/Hupk2uzBcW6Z4/aD2sn/+MutFoUIg9grN0/yeM9v1HhofR2NiIpqY/9DjonjHqiqwgOycHa9bm49CBz/wBFO/Y6WppbkZrawuGhob07RSvV4LNZkXW4iwsXbYc9jl2VIuOiM8DJKOjG4IMVqsVWVlZyM1bTYsneL3eoA1fykSQF5poJja28iTJizu323Ht+jVSpoirkBk32jmwHulJ58ID4O+NRg11NChkpoinLaOd7jXIeOYCREfkKWQGAKBCUxGcgR07d7k4np+wgCkTfQ8+xezEipiokO+ykuqE7MTRIxWPi3jbnm1zrJK1CwBHvKfFfXZ2DrJzVo6bp3AnMsaY5qhy0Nko27Fzh6yqqt85aaBln+qUctQZKKh1XtTrj/4e2znR+vv6hYlOKbmioqIUxthljucyxvYq9cU2oV679nVcutQQWMQaSZ3klV47ffp0PbndgCC57SXbs228rZ4CCDzaJQCGG6V2fjv/C5qbm/VBHLtknud5SZUOunvdR2tqaujodvy0PNQxK42eWlhYuMVqsx6VZTmd53mNgAmCcO3E8RN0/hPWod9YMGzFihWWvFV5LV6v90XGGGec1JOGamNbD4yxega2yeFwdIdaZIUCMNH3ZgIO1b/+vKC4YMMZ8cxPROEJMjhlG9MBEFZQT+ql/wD+45h8mZEudAAAAABJRU5ErkJggg==)
+			no-repeat;
+
+			margin:10px;
+			margin-left:16px;
+			float:left;
+			width:48px;
+			height:48px;
+		}
+		.app_header_search {
+			float:right;
+			padding:10px;
+		}
+		.app_header_search_help {
+			display: inline-block;
+			background-color: #bbb;
+			color: white;
+			width: 14px;
+			height: 14px;
+			border-radius: 50%;
+			text-align: center;
+			font-weight: bold;
+			position: relative;
+			top: -1px;
+			cursor: pointer;
+		}
+		.app_header_stats {
+			padding: 10px;
+			padding-top:0px;
+			font-style: italic;
+		}
+
+		/* --- Main areas --- */
+
+		.content {
+			max-width: 1440px;
+			display:none;
+			padding:0px;
+			margin-left: auto;
+			margin-right: auto;
+			background: white;
+			border: none;
+			border-left: 1px solid #aaa;
+			border-right: 1px solid #aaa;
+			border-bottom: 1px solid #aaa;
+		}
+		@media screen and (min-width : 1024px) {
+			.content {
+				width: 90%;
+			}
+		}
+
+		.treeview {
+			position:relative;
+			height: 100%;
+			width:10%;
+			float:left;
+			border-top: 1px solid #aaa;
+			font-size:9pt
+		}
+		.treeview_bold {
+			font-weight: bold;
+		}
+
+		.list_container {
+			position:relative;
+			height: 100%;
+			overflow: auto;
+			border-top: 1px solid #aaa;
+		}
+
+		.list_files {
+			overflow: auto;
+			position: relative;
+		}
+
+		.search_indicator {
+			position: absolute;
+			left: 0px;
+			right: 0px;
+			top: 0px;
+			bottom: 0px;
+			background-color: white;
+			opacity: 0.7;
+			text-align: center;
+			padding-top: 100px;
+			font-size: 18px;
+			display: none;
+			z-index: 99;
+		}
+
+		/* --- Splitter --- */
+
+		.vsplitbar {
+			width: 1.50px;
+			background: #d7dee3;
+			border-right: 1px solid #bbb;
+		}
+
+		/* --- File Table --- */
+
+		#files.tablesorter {
+			font-family:arial;
+			background-color: #cdcdcd;
+			font-size: 10.5pt;
+			line-height: 1.20em;
+			width: 100%;
+			text-align: left;
+			border-spacing: 0px;
+			border-bottom: 1px solid #ccc;
+		}
+		#files.tablesorter thead tr th, #files.tablesorter tfoot tr th {
+			background: #ffefcc;
+			border-left: 1px solid #ccc;
+			border-right: 1px solid #ccc;
+			padding: 4px;
+			border-left: 0px;
+		}
+		#files.tablesorter thead tr .header {
+			background-image: url(data:image/gif;base64,R0lGODlhFQAJAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAkAAAIXjI+AywnaYnhUMoqt3gZXPmVg94yJVQAAOw==);
+			background-repeat: no-repeat;
+			background-position: center right;
+			cursor: pointer;
+			text-align: center;
+		}
+		#files.tablesorter tbody td {
+			vertical-align: top;
+			background-color: #fff;
+			border-bottom: none;
+			border-left: none;
+			border-right: 1px solid #ccc;
+			border-top: 1px solid #e0e0e0;
+			padding: 3px 4px 3px 4px;
+		}
+
+		#files.tablesorter:not(.has-parent-folder) tbody tr:nth-child(even) td {
+			background-color: #f8f8f8;
+		}
+		#files.tablesorter.has-parent-folder tbody tr:nth-child(odd) td {
+			background-color: #f8f8f8;
+		}
+		
+		#files.tablesorter tbody tr:hover td,
+		#files.tablesorter tbody tr:nth-child(even):hover td {
+			background-color: #E4F0F9;
+		}
+		
+		#files.tablesorter thead tr .headerSortUp {
+			background-image: url(data:image/gif;base64,R0lGODlhFQAEAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAQAAAINjB+gC+jP2ptn0WskLQA7);
+		}
+		#files.tablesorter thead tr .headerSortDown {
+			/*background-image: url(tree_tablesorter_desc.gif);*/
+			background-image: url(data:image/gif;base64,R0lGODlhFQAEAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAQAAAINjI8Bya2wnINUMopZAQA7);
+		}
+		#files.tablesorter thead tr .headerSortDown, #files.tablesorter thead tr .headerSortUp {
+			background-color: #FFD283;
+		}
+
+		#files.tablesorter th:last-of-type,
+		#files.tablesorter td:last-of-type {
+			border-right:0px;
+		}
+
+		span.file, span.file_folder {
+			background: url(//cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/icons/files.svg)
+						no-repeat
+						left center;
+			padding-left:18px;
+			padding-bottom:1px;
+			padding-top:2px;
+		}
+
+		span.file_folder {
+			background: url(//cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/icons/folder.svg)
+						no-repeat
+						left center;
+		}
+
+		span.file a, span.file_folder a {
+			text-decoration: none;
+			color: #333;
+		}
+
+		span.file a:hover, span.file_folder a:hover {
+			text-decoration: underline;
+			color: #900;
+		}
+
+		td.size {
+			text-align: right;
+			white-space: nowrap;
+		}
+		
+		td.date {
+			white-space: nowrap;
+		}
+
+
+		/* make room for [..] */
+		#files.tablesorter.has-parent-folder th {
+			border-bottom: 1px solid #ccc;
+		}
+
+		#files.tablesorter.has-parent-folder tbody tr:first-child td {
+			border-top: 20px solid white;
+		}
+		#parent_folder {
+			position: absolute;
+			top: 27px;
+			left: 4px;
+		}
+		#parent_folder_border {
+			background-color: #e0e0e0;
+			height: 1px;
+			position: absolute;
+			width: 100%;
+			top: 42px;
+		}
+
+
+		/* --- Breadcrumb --- */
+
+		.list_header {
+			background: #fff;
+			font-family: arial;
+			font-size: 11pt;
+			border: 0px;
+			border-bottom: 1px solid #CCC;
+			padding:3px;
+			padding-left: 6px;
+		}
+
+		.list_header span {
+			background-color: white;
+		}
+
+		.list_header a {
+			text-decoration: none;
+			color: #333;
+		}
+		.list_header a:hover {
+			text-decoration: underline;
+			color: #900;
+		}
+		
+		.path_divider {
+			display:inline-block;
+			margin-left: 3px;
+			margin-right: 2px;
+			margin-bottom: 1px;
+			width: 0px;
+			height: 0px;
+			border-style: solid;
+			border-width: 3px 0 3px 5px;
+			border-color: transparent transparent transparent #222;
+		}
+		
+		/* --- DynaTree --- */
+		
+		ul.dynatree-container
+		{
+			white-space: nowrap;
+			padding: 0px;
+			margin: 0; /* issue 201 */
+			background-color: white;
+			border: 0px dotted gray;
+			overflow: auto;
+			height: 100%; /* issue 263 */
+		}
+
+		ul.dynatree-container ul
+		{
+			padding: 0 0 0 16px;
+			margin: 0;
+		}
+
+		ul.dynatree-container li
+		{
+			list-style-image: none;
+			list-style-position: outside;
+			list-style-type: none;
+			-moz-background-clip:border;
+			-moz-background-inline-policy: continuous;
+			-moz-background-origin: padding;
+			background-attachment: scroll;
+			background-color: transparent;
+			background-repeat: repeat-y;
+			/* vline.gif */
+			background-image:url(data:image/gif;base64,R0lGODlhEAAQAPcAAAAAAIAAAACAAICAAAAAgIAAgACAgMDAwMDcwKbK8P///6Wlpf/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////78KCgpICAgP8AAAD/AP//AAAA//8A/wD//////yH5BAEAAP4ALAAAAAAQABAAAAgpAP0JFHhvoMGDCBMiLKiwocOBDB9KXDixosGIFidizPhwI8eGHj8KDAgAOw==);
+			background-position: 0 0;
+			margin: 0;
+			padding: 2px 0 0 0;
+		}
+		ul.dynatree-container li.dynatree-lastsib
+		{
+			background-image: none;
+		}
+		ul.dynatree-no-connector > li
+		{
+			background-image: none;
+		}
+		.ui-dynatree-disabled ul.dynatree-container
+		{
+			opacity: 0.5;
+			background-color: silver;
+		}
+		span.dynatree-empty,
+		span.dynatree-vline,
+		span.dynatree-connector,
+		span.dynatree-expander,
+		span.dynatree-icon,
+		span.dynatree-checkbox,
+		span.dynatree-radio,
+		span.dynatree-drag-helper-img,
+		#dynatree-drop-marker
+		{
+			width: 16px;
+			height: 16px;
+			display: inline-block; /* Required to make a span sizeable */
+			vertical-align: top;
+			background-repeat: no-repeat;
+			background-position: left;
+			/* icons.gif */
+			background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABwCAYAAACuE3ZzAAAA+UlEQVR4nO3YYY6CMBAG0HazJ9QjrMfSI+AV9YepwQ0IWVgmOO8lxIL5jOmMQlsKAAAAAAAAAAAAAAAAAAAAwCfquvMtMk80HZCdDsiuVXDu69p5oqlMdjogOx2QnQ7ILnotEJ1PpZYyb8aOx1Mde2/P+e82OBx+RsPX62Xq83eb/xq6WOvoZM+yNL+lwQnI5GUCaq3P6vXHzdR6fq18/9gk33XnW18p5eV86k9m7fxv/5n3Exi6+Cji3y3Nb+l5G5xzq3ln73n6op/Fo/NEVyA6T3QFovOp2A9og72u55fm7QdEf4Fo9gPawH5AUvYD2iB6PR6dB3K6A7CRDkvQMF4HAAAAAElFTkSuQmCC);
+			background-position: 0 0;
+		}
+		ul.dynatree-container img
+		{
+			width: 16px;
+			height: 16px;
+			margin-left: 3px;
+			vertical-align: top;
+			border-style: none;
+		}
+		span.dynatree-connector
+		{
+			background-position: -16px -64px;
+		}
+		span.dynatree-expander
+		{
+			background-position: 0px -80px;
+			cursor: pointer;
+		}
+		.dynatree-exp-cl span.dynatree-expander /* Collapsed, not delayed, last sibling */
+		{
+			background-position: 0px -96px;
+		}
+		.dynatree-exp-cd span.dynatree-expander /* Collapsed, delayed, not last sibling */
+		{
+			background-position: -64px -80px;
+		}
+		.dynatree-exp-cdl span.dynatree-expander /* Collapsed, delayed, last sibling */
+		{
+			background-position: -64px -96px;
+		}
+		.dynatree-exp-e span.dynatree-expander,  /* Expanded, not delayed, not last sibling */
+		.dynatree-exp-ed span.dynatree-expander  /* Expanded, delayed, not last sibling */
+		{
+			background-position: -32px -80px;
+		}
+		.dynatree-exp-el span.dynatree-expander,  /* Expanded, not delayed, last sibling */
+		.dynatree-exp-edl span.dynatree-expander  /* Expanded, delayed, last sibling */
+		{
+			background-position: -32px -96px;
+		}
+		.dynatree-loading span.dynatree-expander  /* 'Loading' status overrides all others */
+		{
+			background-position: 0 0;
+			/*background-image: url("loading.gif");*/
+		}
+		span.dynatree-icon /* Default icon */
+		{
+			margin-left: 3px;
+			background-position: 0px 0px;
+		}
+		.dynatree-ico-cf span.dynatree-icon  /* Collapsed Folder */
+		{
+			/*background-position: 0px -16px;*/
+			background: url(//cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/icons/folder.svg)
+		}
+		.dynatree-ico-ef span.dynatree-icon  /* Expanded Folder */
+		{
+			/*background-position: -64px -16px;*/
+			background:url(//cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/icons/folder-plus.svg);
+		}
+		span.dynatree-node
+		{
+			/*	display: -moz-inline-box; /* issue 133, 165, 172, 192. removed for issue 221*/
+			/*	-moz-box-align: start; /* issue 221 */
+			/*  display: inline-block; /* Required to make a span sizeable */
+		}
+		ul.dynatree-container a
+		{
+			color: black; /* inherit doesn't work on IE */
+			text-decoration: none;
+			vertical-align: top;
+			margin: 0px;
+			/*margin-left: 3px;*/
+			border: 1px solid transparent;
+			/*	outline: 0; /* @ Firefox, prevent dotted border after click */
+		}
+		ul.dynatree-container a:hover
+		{
+			/*	text-decoration: underline; */
+			background-color: #E9EDEF;
+			border: 1px solid #aaa;
+		}
+		span.dynatree-node a
+		{
+			/*font-size: 10pt; /* required for IE, quirks mode */
+			display: inline-block; /* Better alignment, when title contains <br> */
+			padding-left: 2px;
+			padding-right: 3px; /* Otherwise italic font will be outside bounds */
+		}
+		span.dynatree-folder a
+		{
+		}
+		ul.dynatree-container a:focus,
+		span.dynatree-focused a:link  /* @IE */
+		{
+		}
+		span.dynatree-has-children a
+		{
+		}
+		span.dynatree-expanded a
+		{
+		}
+		span.dynatree-selected a
+		{
+		}
+		span.dynatree-active a
+		{
+			font-weight: bold;
+			/*background-color: #3169C6 !important;
+			color: white !important; /* @ IE6 */
+		}
